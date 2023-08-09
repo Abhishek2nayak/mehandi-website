@@ -36,6 +36,50 @@ a {
 .light {
   color: var(--white);
 }
+.cursor {
+  height: 25px;
+  width: 25px;
+  background-color: plum;
+  position: fixed;
+  border-radius: 50%;
+  z-index: 10;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  color: red;
+}
+
+.page-heading {
+  width: 100%;
+  height: calc(100vh - 90px);
+  position: relative;
+  /* background-color: red; */
+}
+.page-heading h1 {
+  font-size: 5rem;
+  font-family: var(--casual-font);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.page-heading .down {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-10%, -50%);
+  border: 2px solid black;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mouse-enter {
+  width: auto;
+  padding: 2px 10px;
+  border-radius: 20px;
+}
 
 html,
 body {
@@ -57,6 +101,41 @@ body {
   background-color: var(--black);
 }
 
+.connect-links a {
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--grey);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  color: inherit;
+}
+.connect-links a:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--brown);
+  border-radius: 50%;
+  z-index: -1;
+  bottom: -100%;
+  left: -100%;
+  transition: 0.3s ease;
+}
+.connect-links a:hover::after {
+  top: 0;
+  left: 0;
+}
+
+.connect-links {
+  display: flex;
+  gap: 20px;
+}
+
 /* dot css  */
 
 /* dot css  */
@@ -74,7 +153,7 @@ body {
 
 #landing-page {
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 .nav-container {
@@ -277,7 +356,7 @@ button.book-now i {
 #services {
   width: 100%;
   height: auto;
-  background-color: #000;
+  background-color: var(--white);
   border-radius: 50px 50px 0 0;
 }
 .service-container {
@@ -303,6 +382,7 @@ button.book-now i {
   height: 350px;
   /* background-color: red; */
 }
+
 .card-container img {
   width: 100%;
   height: 83%;
@@ -346,7 +426,7 @@ button.book-now i {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: 0.2s ease-in;
+  transition:all  0.5s ease;
   border-radius: 20px;
 }
 
@@ -357,23 +437,23 @@ button.book-now i {
 }
 
 .achievments {
+  left: 50%;
+  transform: translate(-50%,0);
   height: 500px;
-  width: 100%;
-  
+  width: 98%;
+
   position: relative;
-  
 }
 
 .achievments img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  
 }
 .achievments div {
   position: absolute;
   background-color: #826202b8;
-  bottom:0;
+  bottom: 0;
   width: 800px;
   left: 50%;
   transform: translate(-50%, 0);
@@ -409,6 +489,37 @@ button.book-now i {
   margin-bottom: 50px;
 }
 
+#page-heading {
+  width: 100%;
+  height: calc(100% - 90px);
+  position: relative;
+  /* background-color: red; */
+}
+#page-heading h1 {
+  font-size: 5rem;
+  font-family: var(--casual-font);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.hamburger {
+  display: none;
+}
+#page-heading .down {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-10%, -50%);
+  border: 2px solid black;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .feed-card {
   width: 300px;
   height: 400px;
@@ -422,10 +533,10 @@ button.book-now i {
   gap: 20px;
   padding: 20px;
   border: 1px solid #d1d1d1;
-  transition: .3s ease-in;
+  transition: 0.3s ease-in;
 }
 .feed-card img {
-  transition: .3s ease-in;
+  transition: 0.3s ease-in;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -438,23 +549,20 @@ button.book-now i {
 .feed-card:hover {
   border: 1px solid var(--prim-green);
   background-color: var(--white-green);
-  transform: scale(1.06)
+  transform: scale(1.06);
 }
 .feed-card:hover img {
   transform: scale(1.2);
 }
 .contact {
   width: 100%;
-  
-  
 }
 .contact-container {
   display: flex;
   justify-content: space-between;
   padding: 50px 30px;
-  
- 
-  gap:30px;
+
+  gap: 30px;
 }
 .contact-container .contact-info {
   width: 50%;
@@ -469,20 +577,19 @@ button.book-now i {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap:10px;
+  gap: 10px;
   padding: 10px;
 }
-.contact-info  .contact-card:last-child ul{
+.contact-info .contact-card:last-child ul {
   display: flex;
-  gap:10px;
+  gap: 10px;
 }
-.contact-info  .contact-card:last-child ul li a i {
+.contact-info .contact-card:last-child ul li a i {
   font-size: 30px;
-  
 }
 .contact-card i {
   font-size: 40px;
-  color:var(--white-green)
+  color: var(--white-green);
 }
 .contact-card h3 {
   font-size: 20px;
@@ -491,17 +598,15 @@ button.book-now i {
 .contact-container iframe {
   width: 50%;
   border-radius: 20px;
-  
-
 }
-
 
 .footer {
   width: 100%;
-  height: 400px;
+  /* height: 400px; */
+  /* padding: 20px 30px; */
   background-color: var(--black);
 }
-.footer  > a {
+.footer > a {
   display: flex;
 }
 .footer a img {
@@ -509,7 +614,7 @@ button.book-now i {
   width: 350px;
   height: 200px;
   padding: 50px;
-  object-fit:contain ;
+  object-fit: contain;
 }
 .footer .main-foot {
   display: flex;
@@ -517,7 +622,7 @@ button.book-now i {
   align-items: flex-start;
   padding: 0 100px;
   width: 100%;
-  height: calc(100% - 200px);
+  padding-bottom: 50px;
 }
 .main-foot ul li a {
   color: var(--white);
@@ -528,19 +633,168 @@ button.book-now i {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap:10px;
+  gap: 10px;
   position: relative;
   font-size: 17px;
 }
-.main-foot > ul li:last-child {
-  background-color: var(--black);
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  
-  
-}
+
 .main-foot > ul:last-child ul {
   display: flex;
-  gap:10px;
+  gap: 10px;
+}
+.nav-link {
+  color: black;
+}
+
+
+@media screen and (max-width: 800px) {
+  .hamburger {
+    display: block;
+  }
+  .logo {
+    position: relative;
+    transform: none;
+    left: auto;
+  }
+  .top-nav {
+    position: relative;
+    z-index: 3;
+    justify-content: space-between;
+  }
+  .top-nav .book-now {
+    display: none;
+  }
+  .top-nav .top-left {
+    display: none;
+  }
+  .bottom-nav .page-links {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-link {
+    color: white!important;
+  }
+  
+
+  .bottom-nav .dot {
+    display: none;
+  }
+  .bottom-nav {
+    width: 100%;
+
+    top: -60vh;
+    height: 60vh;
+    transition: 0.5s all ease;
+    padding: 20px 50px;
+    background-color: black;
+    z-index: 2;
+    position: relative;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .bottom-nav .v-divider {
+    display: none;
+  }
+  .h-divider {
+    display: none;
+  }
+  .expanded {
+    top: 0;
+  }
+
+
+   /* hero section  */
+   .hero-container {
+  /* background-color: red; */
+  height: 100vh;
+  top:-90px;
+   }
+   .hero-container img {
+    display: none;
+   }
+   .hero-container #img-1 {
+    display: block;
+    width: 100%;
+    left:0;
+    top:0;
+    height: 70vh;
+    /* object-fit: cover; */
+   }
+  
+
+
+   .page-heading h1 {
+     width: 100%;
+     text-align: center;
+   }
+   .hero-container h1 {
+    transform: none;
+    top:87vh;
+    font-size: 8vw;
+    text-align: center;
+    width: 100%;
+   }
+   .hero-container .links   {
+      transform: none;
+      top:90vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+   
+
+    /* service section  */
+    #services {
+      border-radius: 0;
+    }
+   
+    
+   .heading {
+    font-size: 10vw;
+   }
+   .description {
+    padding-left: 20px;
+    padding-right: 20px;
+   
+    font-size: 3vw;
+   }
+   .achievments .right {
+    width: 100%;
+    padding:20px;
+   }
+   .achievments .right h1 {
+    font-size: 30px;
+   }
+   .achievments .right p  {
+    font-size: 15px;
+    text-align: center;
+    padding: 0 20px;
+   }
+
+   .contact-container {
+    flex-wrap: wrap;
+    padding: 50px 10px;
+   }
+   .contact-container .contact-info {
+    width: 100%;
+    /* padding: 0 20px; */
+   }
+   .contact-container iframe {
+    width: 100%;
+   }
+   .footer {
+    width: 100%;
+    
+   }
+   .main-foot {
+    flex-wrap: wrap;
+    gap:30px;
+    
+   }
+   .nav-link {
+    color: white;
+    font-size: 6vw;
+  }
+   /* footer section  */
 }
