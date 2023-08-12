@@ -113,3 +113,11 @@ hamburger.addEventListener("click", function () {
 
 
 }
+
+export function redirectToAnotherPage(ele,url) {
+  for(var temp of ele) {
+    temp.addEventListener("click",()=> {
+        window.location.href = url;
+    })
+  }
+}
