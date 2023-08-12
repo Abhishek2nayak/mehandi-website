@@ -41,8 +41,10 @@ export function init() {
 export function viewMoreEvent(ele,cursor) {
  
   for (var card of ele) {
+    
     card.addEventListener("mouseenter", function () {
-      cursor.textContent = text;
+
+      cursor.textContent = 'view more';
       cursor.classList.add("mouse-enter");
     });
     card.addEventListener("mouseleave", function () {
@@ -120,4 +122,12 @@ export function redirectToAnotherPage(ele,url) {
         window.location.href = url;
     })
   }
+}
+
+
+export function hideLoader(loader) {
+  window.addEventListener("load",function() {
+    loader.hidden = true
+})
+
 }
