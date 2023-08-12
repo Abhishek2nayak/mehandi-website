@@ -1,6 +1,6 @@
-import { Video,cursorMove,Menu,init } from "../../utils.js"
+import { hideLoader,Video,cursorMove,Menu,init } from "../../utils.js"
 
-
+const loader = document.querySelector('.loader')
 const cursor = document.querySelector('.cursor')
 const main = document.querySelector('.main')
 const hamburger = document.querySelector('.hamburger')
@@ -15,8 +15,6 @@ Menu(hamburger,bottomNav)
 
 Video(Media,cursor)
 
-
-
 // animation 
 
 
@@ -25,7 +23,6 @@ var t1 = gsap.timeline({
     scrollTrigger: {
         trigger: ".page-heading h1",
         scroller: ".main",
-        markers: true,
         start: "top 30%",
         end: "top 0",
         scrub: 3,
@@ -46,7 +43,6 @@ var t2 = gsap.timeline({
     scrollTrigger: {
         trigger: ".our-team h1",
         scroller: ".main",
-        markers: true,
         start: "top 30%",
         end: "top 0",
         scrub: 2,
@@ -60,3 +56,5 @@ t2.from('.our-studio-container div', {
     y : 50
 },"anim")
 
+
+hideLoader(loader)

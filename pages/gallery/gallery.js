@@ -1,4 +1,7 @@
-import {Video,cursorMove,Menu,init } from "../../utils.js"
+
+import {hideLoader,cursorMove,Menu ,init,Video} from "../../utils.js"
+
+const loader = document.querySelector('.loader')
 
 const cursor = document.querySelector('.cursor')
 const main = document.querySelector('.main')
@@ -39,3 +42,6 @@ gsap.from('.photo-gallery video',{
     },
 });
 
+
+
+hideLoader(loader)
