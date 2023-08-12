@@ -1,5 +1,5 @@
 
-import { viewMoreEvent,cursorMove,Menu } from "./utils.js"
+import {redirectToAnotherPage, viewMoreEvent,cursorMove,Menu } from "./utils.js"
 
 
 const cursor = document.querySelector('.cursor')
@@ -14,3 +14,4 @@ Menu(hamburger,bottomNav) // to open menu or close
 viewMoreEvent(serviceCard,cursor); //to apply hover effect on service card
 viewMoreEvent(images,cursor) // to apply hover effect on images 
 
+redirectToAnotherPage(images,"pages/gallery/gallery.html")
