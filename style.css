@@ -713,23 +713,26 @@ button.book-now i {
     height: 70vh;
     /* object-fit: cover; */
    }
-  
+
 
 
    .page-heading h1 {
      width: 100%;
      text-align: center;
    }
-   .hero-container h1 {
-    transform: none;
-    top:87vh;
+   #landing-page .hero-container  h1 {
+    transform: translate(0,0);
+    top:80vh;
+    left: 0;
     font-size: 8vw;
     text-align: center;
-    width: 100%;
+    
+    width: 100vw;
    }
    .hero-container .links   {
       transform: none;
-      top:90vh;
+      top:82vh;
+      left: 0;
       width: 100%;
       display: flex;
       justify-content: center;
